@@ -26,6 +26,18 @@ header {
   z-index: 10;
 }
 
+@media (min-width: 769px) {
+  /* Mostra os links normais */
+  .nav-links {
+    display: flex !important;
+  }
+
+  /* Esconde o hambúrguer */
+  .services-menu {
+    display: none !important;
+  }
+}
+
 .logo img {
   height: 4rem;   /* ajusta o tamanho da logo */
   width: 4rem;    /* mantém proporcional se quiser forçar quadrado */
@@ -67,12 +79,12 @@ header {
   text-decoration: none;
   font-weight: bold;
   font-size: 1.2rem;
-  color: rgb(85, 27, 94);
+  color: #401447;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: rgb(199, 61, 220);
+  color: rgb(255, 255, 255);
 }
 
 .menu-icon {
@@ -89,12 +101,12 @@ header {
 .services-menu .menu-toggle {
   font-size: 18px;
   font-weight: bold;
-  color: rgb(98, 30, 108);
+  color: #401447;
   cursor: pointer;
 }
 
 .services-menu .menu-toggle :hover{
-  color: rgb(199, 60, 220);
+  color: rgb(255, 255, 255);
 }
 
 /* Dropdown escondido inicialmente */
@@ -549,9 +561,9 @@ header {
   justify-content: center;
   align-items: center;
   padding: 80px 20px;
-  background: #f8f8f8; /* fundo claro */
+  background: #ffffff; /* fundo claro */
   font-family: "Questrial", sans-serif;
-  color: #333;
+  color: #401447;
 }
 
 .teacher-container {
@@ -784,81 +796,66 @@ footer {
 
 /* Mobile (até 768px) */
 @media (max-width: 768px) {
-     header {
-    position: relative; /* não fixo */
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 10;
-  }
 
   .navbar {
-    background: none;     
-    box-shadow: none;      
-    padding: 10px;   
-    margin-top: -250px;
-    justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background: transparent;
+  }
+
+  .navbar .logo {
+    margin-right: 20px;
   }
 
   .nav-links {
-   display:inline-block;
-    flex-direction: column;
-    position: absolute;
-    top: 60px; /* abaixo da navbar */
-    right: 0;
-    background: rgba(64, 20, 71, 0.95); /* roxo escuro */
-    width: 200px;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 999;
+    display: none !important;
   }
 
-  .nav-links.show {
-    display: flex; /* abre quando clicado */
-  }
-
-  .nav-links li {
-    width: 100%;
-  }
-
-  .menu-icon {
+  .services-menu {
     display: block;
-    font-size: 2rem;
-    cursor: pointer;
-    color: white;
   }
 
-  /* Services dentro do menu */
   .services-menu .services-dropdown {
     display: none;
     flex-direction: column;
-    padding-left: 15px;
-    gap: 5px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+    min-width: 200px;
   }
 
   .services-menu.open .services-dropdown {
     display: flex;
   }
 
-  .menu-toggle {
-    position: fixed;
+  .services-menu .menu-icon {
+    font-size: 2rem;
     cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    color: white;
   }
 
   /* Hero */
   .hero {
     background-size: cover;
     background-position: center;
-    padding: 2rem 1rem 4rem 1rem;
-    height: auto;
-    min-height: 70vh;
+    padding: 5rem 1rem 4rem 1rem;
+    height: 100%;
+    max-height: 100vh;
+    min-height: 100vh;
     justify-content: center;
     text-align: center;
+    border: #000 solid 1px;
   }
+
+  .hero .overlay {
+  background: none;
+}
 
   .hero-content {
     max-width: 90%;
@@ -882,69 +879,56 @@ footer {
   .about-container {
     flex-direction: column-reverse;
     text-align: center;
-  }
-
-  .about-content {
-    padding: 20px;
+    height: auto;
+    max-height: none;
+    min-height: auto;
+    margin: 0;
+    padding-top: 20px;
+    padding: 20px 0;
   }
 
   .about-image {
-    width: 100%;
-    height: 300px;
+    display: none;
   }
 
   .about-image img {
     object-fit: cover;
   }
 
-  /* Services Grid */
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-
-  /* Service Detail */
-  .service-detail {
-    grid-template-columns: 1fr;
+  .about-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: auto;
   }
 
-  .service-detail .content {
-    padding: 20px;
-    text-align: center;
-  }
+  .about-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4a2c72;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
 
-  .service-detail .image {
-    height: 200px;
-  }
+}
 
-  .service-detail.left .content,
-  .service-detail.right .content {
-    order: 0;
-  }
+.about-content p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  text-align: center;
+}
 
-  /* Contact */
-  .contact-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .contact-info {
-    padding-left: 0;
-    text-align: center;
-  }
-
-  .contact-image {
-    width: 100%;
-    height: 200px;
-    margin-bottom: 20px;
-  }
-
-  /* Teacher Story */
+/* Teacher Story */
   .teacher-container {
     flex-direction: column;
-    gap: 20px;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding-top: 0;
+    margin-top: -100px;
   }
 
   .teacher-image img {
@@ -960,11 +944,70 @@ footer {
     font-size: 1rem;
   }
 
+  /* Services Grid */
+  .service-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* um card por linha */
+    gap: 10px;                  /* espaçamento entre cards */
+    max-width: 350px;           /* largura máxima do grid */
+    margin: 0 auto;             /* centraliza na tela */
+  }
+
+  /* Cards menores */
+  .service-card {
+    width: 100%;                /* ocupa a largura do grid */
+    height: 180px;              /* altura menor */
+    position: relative;
+  }
+
+  /* Card grande "full" */
+  .service-card.full {
+    height: 220px;              /* ainda maior, mas proporcional */
+  }
+
+  .service-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;          /* mantém a imagem dentro do card */
+  }
+
+  .service-overlay {
+    font-size: 0.9rem;          /* diminui texto */
+    padding: 5px 10px;
+  }
+
+  .plus-icon {
+    font-size: 1.5rem;          /* diminui o ícone + */
+  }
+
+  /* Contact */
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .contact-info {
+    padding-left: 0;
+    text-align: left;
+  }
+
+  .contact-image {
+    display: none;
+  }
+
   /* Floating buttons */
   .whatsapp-float,
   .home-float,
   .back-to-top img {
     width: 50px;
     height: 50px;
+  }
+
+  footer {
+    background-color: #fff;
+    color: #401447;
+    font-size: 0.9rem;    /* diminui o texto */
+    text-align: center;   /* mantém centralizado */
   }
 }
