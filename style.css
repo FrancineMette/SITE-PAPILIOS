@@ -1,0 +1,970 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: rgb(64, 20, 71);
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Navbar */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.logo img {
+  height: 4rem;   /* ajusta o tamanho da logo */
+  width: 4rem;    /* mantém proporcional se quiser forçar quadrado */
+  border-radius: 50%; /* deixa redonda se a imagem não for */
+  object-fit: cover;
+  margin-top: 10px;
+  margin-left: -18px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
+  height: auto;
+  max-height: 80px;
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.7); /* transparente igual ao da imagem */
+  border-radius: 100px; /* deixa o header arredondado em forma de cápsula */
+  backdrop-filter: blur(6px); /* efeito de vidro fosco */
+  margin-top: 20px;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(64, 20, 71);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(85, 27, 94);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: rgb(199, 61, 220);
+}
+
+.menu-icon {
+  font-size: 30px; /* aumenta o tamanho do ícone */
+  cursor: pointer; /* opcional, mostra que é clicável */
+}
+
+.services-menu {
+  position: relative;
+  cursor: pointer;
+  top: -3px;
+}
+
+.services-menu .menu-toggle {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(98, 30, 108);
+  cursor: pointer;
+}
+
+.services-menu .menu-toggle :hover{
+  color: rgb(199, 60, 220);
+}
+
+/* Dropdown escondido inicialmente */
+.services-dropdown {
+  display: none;
+  position: absolute;
+  top: 72px;
+  right: -25px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 12px;
+  padding: 10px 20px;
+  list-style: none;
+  min-width: 220px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.services-dropdown li {
+  padding: 8px 0;
+}
+
+.services-dropdown li a {
+  text-decoration: none;
+  color: rgb(90, 28, 100);
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.services-dropdown li a:hover {
+  color: rgb(199, 60, 220);
+}
+
+/* Classe ativa para abrir menu */
+.services-menu.open .services-dropdown {
+  display: block;
+}
+
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-image: url("Imagens/1.png"); /* primeira imagem */
+  transition: background-image 1s ease-in-out;
+  
+  display: flex;
+  align-items: center;        /* centraliza verticalmente */
+  justify-content: flex-start; /* joga pro lado esquerdo */
+  padding-left: 9rem;         /* espaço da borda esquerda */
+  color: white;
+  overflow: hidden;
+}
+
+.hero .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%; /* cobre toda a largura */
+  height: 100%;
+  background: linear-gradient(to right, rgb(51, 16, 57) 1%, rgb(64, 20, 71) 40%, rgba(64, 20, 71, 0.221) 70%),rgba(64, 20, 71, 0.019) 100%;
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+  margin: auto 0 auto 0;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hero-content p {
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #fff;
+  color: #5a2a82;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #5a2a82;
+  color: #fff;
+}
+
+.indicators {
+  position: absolute;
+  bottom: 30px;
+  right: 50px;
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  background: rgb(155, 103, 163);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: rgb(90, 28, 100);
+}
+
+/* About */
+.about {
+  background: #fff;
+  padding: 0;
+  height: 100vh;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  position: relative;
+}
+
+.about-image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-image .image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+}
+
+.about-content {
+  flex: 1;
+  padding: 60px;
+  text-align: right;
+  color: #4a2c72;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #4a2c72;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.about-content p {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
+}
+/* Services Section */
+.services {
+  min-height: 100vh; /* altura mínima da tela */
+  background: #401447 url('Imagens/onda.svg') no-repeat bottom center;
+  background-size: cover; /* ajusta para cobrir toda a área */
+  color: white;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza verticalmente */
+  align-items: center;
+  text-align: center;
+} 
+  
+.services-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.services-logo {
+  width: 120px;
+  margin-bottom: 15px;
+}
+
+.services h2 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+  margin: 0;
+  color: white;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* sempre 3 colunas no desktop */
+  gap: 20px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.service-card {
+  aspect-ratio: 1 / 1; /* quadrados iguais */
+  overflow: hidden;
+  position: relative;
+}
+
+.service-card.full {
+  grid-column: 1 / -1;  /* ocupa TODAS as colunas disponíveis */
+  aspect-ratio: auto;   /* não fica quadrado, deixa expandir */
+  height: 300px;        /* controla a altura */
+}
+
+.service-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centraliza vertical */
+  align-items: center;     /* centraliza horizontal */
+  background: rgba(255, 255, 255, 0.592); /* camada roxa transparente */
+  text-align: center;
+}
+
+.service-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #401447;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.plus-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2rem;
+  color: #ffcd4b;
+  font-weight: bold;
+  text-decoration: none; /* para links */
+
+}
+
+/* Contact */
+.contact {
+  position: relative;
+  display: flex;
+  justify-content: flex-start; /* texto à esquerda */
+  align-items: center;
+  min-height: 100vh;
+  background-color: #401447; /* roxo sólido */
+  font-family: "Questrial", sans-serif;
+  color: white;
+  overflow: hidden;
+}
+
+/* Imagem da metade direita */
+.contact-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.contact-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Overlay para criar fade sobre a imagem */
+.contact-image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgb(64, 20, 71) 1%, rgba(64, 20, 71, 0))70%;
+  z-index: 1;
+}
+
+/* Container do conteúdo do lado esquerdo */
+.contact-container {
+  position: relative;
+  z-index: 2; /* acima da imagem */
+  display: flex;
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  padding: 0;
+  margin: auto;
+}
+
+/* Informações de contato */
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding-left: 100px;
+}
+
+/* Título */
+.contact-info h2 {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+/* Blocos com ícone + texto */
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Ícone */
+.contact-info .icon img {
+  width: 24px;
+  height: 24px;
+  margin-top: 4px; /* alinha verticalmente */
+}
+
+/* Texto ao lado do ícone */
+.contact-info .text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Destaque (ex: Address, Phone, etc.) */
+.contact-info strong {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+/* Subtexto (endereços, horários, etc.) */
+.contact-info .subline {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Redes sociais */
+.social {
+  margin-top: 20px;
+}
+
+.social img {
+  width: 30px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+/*Botão do Whatsapp*/
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: #401447;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  transition: background 0.3s;
+}
+
+.whatsapp-float:hover {
+  background: #000000;
+}
+
+.whatsapp-float img {
+  max-width: 70%;
+  max-height: 70%;
+  width: auto;
+  height: auto;
+}
+
+/*Botão Volta ao Topo*/
+
+.back-to-top img {
+  max-width: 60px;
+  max-height: 60px;
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* lado esquerdo */
+  background: #401447;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+  z-index: 100;
+  cursor: pointer;
+}
+
+.back-to-top img:hover {
+  background: #000;
+}
+
+/* Teacher Story*/
+
+.teacher-story {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: #f8f8f8; /* fundo claro */
+  font-family: "Questrial", sans-serif;
+  color: #333;
+}
+
+.teacher-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  gap: 50px;
+  align-items: center;
+}
+
+.teacher-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.teacher-image img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 50%; /* deixa redonda */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.teacher-content {
+  flex: 2;
+}
+
+.teacher-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #401447; /* roxo da identidade */
+}
+
+.teacher-content p strong {
+  color: #9300a9;
+}
+
+.teacher-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+  background: #401447;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+
+/* Página de Serviços */
+.services-detail {
+  display: flex;
+  flex-direction: column;
+  background: #401447;
+  background-size: cover;
+  padding: 80px 20px;
+  gap: 60px;
+  font-family: "Questrial", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Cada serviço: duas colunas (texto + imagem) */
+.service-detail {
+  position: relative; /* necessário pro ::after */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  background-color: #401447;
+  z-index: 0;
+  height: 100vh;
+}
+
+/* Só a onda, com transparência */
+.service-detail.left::after,
+.service-detail.right::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: url('Imagens/onda.svg') no-repeat;
+  background-size: contain;
+  opacity: 0.2; /* 👈 controla a transparência só da onda */
+  pointer-events: none; /* não atrapalha clique */
+  z-index: -1;
+}
+
+.service-detail.left::after {
+  left: 0;
+  background-position: bottom left;
+}
+
+.service-detail.right::after {
+  right: 0;
+  background-position: bottom right;
+}
+
+/* Texto da esquerda/direita */
+.service-detail .content {
+  padding: 40px;
+  color: #ffffff;
+}
+
+.service-detail h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.service-detail p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ffffff;
+  margin-bottom: 30px;
+}
+
+/* Botão */
+.service-detail .btn {
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  background: #fff;
+  color: #401447;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #401447;
+  transition: all 0.3s ease;
+}
+
+.service-detail .btn:hover {
+  background: #401447;
+  color: #fff;
+}
+
+/* Imagem do lado oposto */
+.service-detail .image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.service-detail .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.service-detail.right .image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;       /* fade do lado direito */
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(64, 20, 71, 0) 10%, #401447 100%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Fade roxo para imagens à direita (texto à direita) */
+.service-detail.left .image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;        /* fade do lado esquerdo */
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(to left, rgba(64, 20, 71, 0) 0%, #401447 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+
+/* Alternar lados (zebra style) */
+.service-detail:nth-child(even) {
+  grid-template-columns: 1fr 1fr;
+}
+
+.service-detail:nth-child(even) .content {
+  order: 2;
+  text-align: left;
+}
+
+.service-detail:nth-child(even) .image {
+  order: 1;
+}
+
+.home-float {
+  position: fixed;
+  bottom: 90px; /* um pouco acima do WhatsApp */
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #401447;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home-float img {
+  width: 30px;
+  height: 30px;
+}
+
+.home-float:hover {
+  background-color: #000000;
+}
+
+/* =========================
+   Responsividade
+========================= */
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+     header {
+    position: relative; /* não fixo */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .navbar {
+    background: none;     
+    box-shadow: none;      
+    padding: 10px;   
+    margin-top: -250px;
+    justify-content: flex-start;
+  }
+
+  .nav-links {
+   display:inline-block;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* abaixo da navbar */
+    right: 0;
+    background: rgba(64, 20, 71, 0.95); /* roxo escuro */
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 999;
+  }
+
+  .nav-links.show {
+    display: flex; /* abre quando clicado */
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .menu-icon {
+    display: block;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  /* Services dentro do menu */
+  .services-menu .services-dropdown {
+    display: none;
+    flex-direction: column;
+    padding-left: 15px;
+    gap: 5px;
+  }
+
+  .services-menu.open .services-dropdown {
+    display: flex;
+  }
+
+  .menu-toggle {
+    position: fixed;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Hero */
+  .hero {
+    background-size: cover;
+    background-position: center;
+    padding: 2rem 1rem 4rem 1rem;
+    height: auto;
+    min-height: 70vh;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* About */
+  .about-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .about-content {
+    padding: 20px;
+  }
+
+  .about-image {
+    width: 100%;
+    height: 300px;
+  }
+
+  .about-image img {
+    object-fit: cover;
+  }
+
+  /* Services Grid */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Service Detail */
+  .service-detail {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .service-detail .content {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .service-detail .image {
+    height: 200px;
+  }
+
+  .service-detail.left .content,
+  .service-detail.right .content {
+    order: 0;
+  }
+
+  /* Contact */
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .contact-info {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .contact-image {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 20px;
+  }
+
+  /* Teacher Story */
+  .teacher-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .teacher-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .teacher-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .teacher-content p {
+    font-size: 1rem;
+  }
+
+  /* Floating buttons */
+  .whatsapp-float,
+  .home-float,
+  .back-to-top img {
+    width: 50px;
+    height: 50px;
+  }
+}
