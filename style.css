@@ -984,6 +984,9 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    color: inherit;       /* herda a cor do texto normal */
+    text-decoration: none;
+
   }
 
   .contact-info {
