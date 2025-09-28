@@ -748,8 +748,6 @@ footer {
   z-index: 1;
 }
 
-
-
 /* Alternar lados (zebra style) */
 .service-detail:nth-child(even) {
   grid-template-columns: 1fr 1fr;
@@ -1011,5 +1009,75 @@ footer {
     color: #401447;
     font-size: 0.9rem;    /* diminui o texto */
     text-align: center;   /* mantém centralizado */
+  }
+}
+
+/* Responsividade Serviços */
+@media (max-width: 768px) {
+  .service-detail {
+    display: flex !important;             /* ✅ muda de grid pra flex */
+    flex-direction: column !important;
+    grid-template-columns: none !important; 
+    text-align: left;
+    padding: 30px 15px;
+    min-height: auto !important;
+    gap: 20px;
+    height: auto !important; 
+  }
+
+  .service-detail .content {
+    order: 1 !important;
+    padding: 15px 10px;
+  }
+
+  .service-detail .image {
+    order: 2;
+    width: 100%;
+  }
+
+  .service-detail .image img {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10%;
+  }
+
+ .service-detail.right .image::after,
+  .service-detail.left .image::after {
+   background: none !important;
+  content: none !important;
+  }
+
+  .service-detail h2 {
+    font-size: 1.5rem;
+  }
+
+  .service-detail p {
+    font-size: 1rem;
+  }
+
+  .service-detail .btn {
+    display: block;
+    width: 60%;        /* largura relativa */
+    max-width: 220px;  /* mas nunca passa disso */
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+
+/* Extra para telas muito pequenas (celulares menores) */
+@media (max-width: 480px) {
+  .service-detail {
+    padding: 20px 10px;
+    gap: 15px;
+  }
+
+  .service-detail h2 {
+    font-size: 1.3rem;
+  }
+
+  .service-detail p {
+    font-size: 0.9rem;
   }
 }
