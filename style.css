@@ -236,28 +236,32 @@ header {
 .about {
   background: #fff;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100hv;
+  align-items: stretch;
+  display: flex;
 }
 
 .about-container {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: stretch;
+  justify-content: center;
   height: 100%;
   position: relative;
+  flex-wrap: wrap;
 }
 
 .about-image {
   flex: 1;
   position: relative;
   overflow: hidden;
-  height: 100%;
+  height: 100hv;
 }
 
 .about-image img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100%; /* ocupa a altura toda */
+  object-fit: cover; /* corta se necessário */
 }
 
 .about-image .image-overlay {
@@ -873,6 +877,13 @@ footer {
   }
 
   /* About */
+
+  .about {
+    height: auto;         /* deixa a altura se ajustar ao conteúdo */
+    min-height: auto;
+    padding: 20px 0;
+  }
+
   .about-container {
     flex-direction: column-reverse;
     text-align: center;
@@ -880,7 +891,6 @@ footer {
     max-height: none;
     min-height: auto;
     margin: 0;
-    padding-top: 20px;
     padding: 20px 0;
   }
 
@@ -898,6 +908,7 @@ footer {
     flex-direction: column;
     justify-content: center;
     height: auto;
+    padding: 30px;
   }
 
   .about-content h2 {
@@ -924,8 +935,7 @@ footer {
     align-items: center;
     text-align: center;
     gap: 15px;
-    padding-top: 0;
-    margin-top: -150px;
+    margin-top: -40px;
   }
 
   .teacher-image img {
