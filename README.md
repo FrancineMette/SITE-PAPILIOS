@@ -1,4 +1,4 @@
-![Papilio’s Clinic & College Website](assets/preview.png)
+![Papilio’s Clinic & College Website](assets/papiliosclinic.com_.png)
 
 # Papilio’s Clinic & College Website
 
